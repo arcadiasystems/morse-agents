@@ -1,0 +1,6 @@
+/* Morse Agents: the Phosphor Lime palette. The first line is the token
+   contract of base.css; the second is this site's own. On this site "live" is
+   the accent itself, so --ok equals --acc and there is one green, not two. */
+:root{--bg:#080A07;--bg-rgb:8,10,7;--panel-rgb:13,16,11;--dim:#BBBFB3;--mute:#90958A;--acc:#C6F135;--acc-rgb:198,241,53;--lift:#DDF78A;--lift-rgb:221,247,138;--tint-rgb:240,252,200;--em:var(--acc);--on-acc:#080A07;--ok:#C6F135;--warn:#F0C96A;
+  /* only for the Morse Press lockup in the cross-link band */
+  --press:#FF5A36}
