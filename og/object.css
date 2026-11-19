@@ -1,0 +1,8 @@
+/* Morse Agents: the hero's rig on the share image, the board with its brain
+   cartridge seated, the fork listing over it and the label that says it is a
+   sketch. The label moves to the left, under the listing, where a square
+   centre crop keeps it. */
+
+.og .glow{opacity:.14}
+.og .rig{position:absolute;left:30px;top:70px;width:500px;height:540px}
+.og .rig .pill.sample{right:auto;left:0;bottom:0;font-size:12px}
