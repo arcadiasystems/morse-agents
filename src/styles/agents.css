@@ -1,0 +1,140 @@
+/* Morse Agents: this site's own objects. Loaded after tokens.css and
+   base.css. The class names are the ones the design handover uses. */
+
+.glow{opacity:.16}
+/* One green: "live" is the accent itself, so the pill and the status lamp take lime. */
+.pill.ok{color:var(--acc);border-color:rgba(var(--acc-rgb),.45);background:rgba(var(--acc-rgb),.08)}
+.status>span:first-child{color:var(--acc)}
+.status i.lamp{background:var(--acc);box-shadow:0 0 10px rgba(var(--acc-rgb),.9)}
+.status i.lamp::after{border-color:var(--acc)}
+.two{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:start}
+
+/* hero: the rig */
+.rig{position:relative;height:540px;min-width:0}
+.iso{position:absolute;right:0;top:0;width:450px;height:410px;transform-style:preserve-3d;transform:rotateX(57deg) rotateZ(-41deg);transform-origin:50% 50%}
+.board{position:absolute;inset:0;border-radius:30px;border:1px solid var(--line-2);transform-style:preserve-3d;
+  background:radial-gradient(rgba(255,255,255,.13) 1px,transparent 1.6px) 0 0/22px 22px,linear-gradient(135deg,rgba(var(--lift-rgb),.12),rgba(255,255,255,.03));
+  box-shadow:-60px 70px 90px rgba(0,0,0,.65),inset 0 0 0 1px rgba(255,255,255,.04)}
+.slot{position:absolute;left:30px;top:30px;right:30px;height:176px;border-radius:22px;border:1.5px dashed rgba(var(--acc-rgb),.75);background:rgba(var(--acc-rgb),.06)}
+.chip3{position:absolute;bottom:30px;width:118px;height:132px;border-radius:18px;background:rgba(var(--panel-rgb),.96);border:1px solid var(--line-2);transform:translateZ(20px);padding:14px;display:flex;flex-direction:column;justify-content:flex-end;gap:2px;box-shadow:-10px 12px 0 rgba(0,0,0,.45)}
+.chip3 b{font-family:var(--mono);font-size:16px;font-weight:500}
+.chip3 small{font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.06em}
+.chip3.c1{left:30px}.chip3.c2{left:166px}.chip3.c3{left:302px}
+/* The cartridge and its label run on two linked loops: `cart` lifts it every
+   3 seconds, and `lab` shows one label per 3 seconds of a 9 second cycle. The
+   delays on .swap b put each swap at the top of the lift (about 2.55s into a
+   3s cycle). Keep the offsets in step if either duration changes. */
+.cart{position:absolute;left:40px;top:40px;right:40px;height:156px;border-radius:16px;padding:18px 20px;color:var(--on-acc);transform-style:preserve-3d;transform:translateZ(26px);animation:cart 3s cubic-bezier(.5,0,.3,1) infinite;
+  background:linear-gradient(135deg,rgb(var(--tint-rgb)) 0,var(--acc) 38%,var(--acc) 100%);box-shadow:0 0 70px rgba(var(--acc-rgb),.55),-10px 12px 0 rgba(var(--acc-rgb),.28)}
+@keyframes cart{0%,68%{transform:translateZ(26px)}80%,90%{transform:translateZ(150px)}100%{transform:translateZ(26px)}}
+.cart small{font-family:var(--mono);font-size:11px;letter-spacing:.16em;display:block;opacity:.75}
+.swap{position:relative;height:74px;margin-top:10px}
+.swap b{position:absolute;inset:0;font-family:var(--disp);font-weight:600;font-size:34px;letter-spacing:-.03em;line-height:1;opacity:0;animation:lab 9s steps(1,end) infinite}
+.swap b:nth-child(1){animation-delay:-.45s}.swap b:nth-child(2){animation-delay:2.55s}.swap b:nth-child(3){animation-delay:5.55s}
+@keyframes lab{0%{opacity:1}33.3%{opacity:0}100%{opacity:0}}
+.gitst{position:absolute;left:0;bottom:9%;width:62%;padding:14px 16px;border-radius:16px;background:rgba(var(--panel-rgb),.9);border:1px solid var(--line-2);box-shadow:0 30px 70px rgba(0,0,0,.6);z-index:3;font-family:var(--mono);font-size:12.5px}
+.gitst__hd{display:flex;justify-content:space-between;gap:8px;font-size:11px;letter-spacing:.14em;color:var(--mute);padding-bottom:8px;border-bottom:1px solid var(--line)}
+.gitst li{display:grid;grid-template-columns:16px minmax(0,1fr) auto;gap:8px;padding:7px 0;border-bottom:1px solid var(--line);color:var(--mute)}
+.gitst li:last-child{border-bottom:0;padding-bottom:0}
+.gitst li.m{color:var(--acc)}
+.gitst li.m span:last-child{color:var(--text)}
+.rig .pill.sample{position:absolute;right:0;bottom:1%}
+.hero__grid{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}
+.hero h1{font-size:clamp(46px,5.6vw,80px)}
+.hero .glow.b{width:420px;height:420px;right:-160px;bottom:-240px}
+
+/* why: the diff */
+.why{padding:120px 0 128px;overflow:hidden}
+.why h2{max-width:900px;margin-top:18px}
+.diff{margin:48px 0 40px;border-top:1px solid var(--line)}
+.diff li{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:8px;align-items:center;padding:18px 20px 18px 0;border-bottom:1px solid var(--line);font-family:var(--disp);font-weight:400;font-size:clamp(26px,3.6vw,50px);letter-spacing:-.035em;line-height:1.05}
+.diff i{font-family:var(--mono);font-style:normal;font-size:.5em;text-align:center;color:var(--mute)}
+.diff .del b{font-weight:400;color:var(--mute);text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:rgba(255,255,255,.3)}
+.diff .add{background:linear-gradient(90deg,rgba(var(--acc-rgb),.16),rgba(var(--acc-rgb),0) 75%);box-shadow:inset 3px 0 0 var(--acc)}
+.diff .add b{font-weight:500;color:var(--acc)}
+.diff .add i{color:var(--acc)}
+.why .after{font-size:clamp(24px,2.8vw,38px);max-width:900px;line-height:1.12}
+
+/* template: the inspector */
+.ide{display:grid;grid-template-columns:260px minmax(0,1fr);overflow:hidden;min-height:380px}
+.ide__tree{border-right:1px solid var(--line);padding:16px 12px;display:flex;flex-direction:column;gap:4px;background:rgba(var(--bg-rgb),.5)}
+.ide__hd{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--mute);padding:4px 10px 10px}
+.part{display:grid;grid-template-columns:10px minmax(0,1fr) auto;gap:10px;align-items:center;text-align:left;background:transparent;border:1px solid transparent;border-radius:10px;padding:0 12px;min-height:46px;cursor:pointer;color:var(--dim);font-family:var(--mono)}
+.part i{width:8px;height:8px;border-radius:2px;background:var(--line-2)}
+.part b{font-weight:500;font-size:14.5px}
+.part small{font-size:11px;letter-spacing:.1em;color:var(--mute)}
+.part.you i{background:var(--acc)}
+.part.is-on{background:var(--glass-2);border-color:var(--line-2);color:var(--text)}
+.ide__pane{padding:36px 40px;display:flex;flex-direction:column;gap:16px}
+.ide__pane[hidden]{display:none}
+.ide__pane h3{font-family:var(--disp);font-weight:400;font-size:clamp(28px,3.2vw,44px);letter-spacing:-.03em;line-height:1.02}
+.ide__pane>p{font-size:17px;color:var(--dim);max-width:56ch}
+.kv{margin-top:auto;border-top:1px solid var(--line)}
+.kv li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding:13px 0;border-bottom:1px solid var(--line);align-items:center}
+.kv li:last-child{border-bottom:0;padding-bottom:0}
+.kv span{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.kv b{font-family:var(--mono);font-weight:400;font-size:14px}
+/* #forks is a nav target inside a section, so it carries the scroll margin that keeps it clear of the fixed nav. */
+.forks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:14px;scroll-margin-top:112px}
+.fork{padding:26px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.fork b{font-family:var(--disp);font-weight:500;font-size:23px;letter-spacing:-.025em;line-height:1.08}
+.fork p{font-size:15.5px;color:var(--dim)}
+.fork .pill{align-self:flex-start;margin-top:auto}
+
+/* today: the terminal */
+.tty{overflow:hidden;min-width:0}
+.tty__bar{display:flex;gap:6px;padding:10px 12px;border-bottom:1px solid var(--line);align-items:center;flex-wrap:wrap}
+.tty__tab{border:1px solid transparent;background:transparent;border-radius:999px;min-height:40px;padding:0 16px;font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);cursor:pointer}
+.tty__tab.is-on{background:var(--text);color:var(--bg)}
+.tty__bar span{margin-left:auto;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--mute);padding-right:6px}
+.tty pre{margin:0;padding:24px 26px;font-family:var(--mono);font-size:13px;line-height:1.8;white-space:pre;overflow-x:auto;color:var(--text)}
+.tty pre[hidden]{display:none}
+.tty pre .c{color:var(--mute)}
+.tty pre .p{color:var(--acc)}
+.pts{border-top:1px solid var(--line)}
+.pts li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:8px;padding:19px 0;border-bottom:1px solid var(--line)}
+.pts .n{font-family:var(--mono);font-size:12px;color:var(--lift);padding-top:5px}
+.pts b{font-family:var(--disp);font-weight:500;font-size:21px;letter-spacing:-.02em;display:block}
+.pts span{font-size:16px;color:var(--dim)}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+
+/* roadmap: five stations */
+.rail5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));position:relative;margin-top:8px}
+.rail5::before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:repeating-linear-gradient(90deg,var(--line-2) 0 6px,transparent 6px 12px)}
+.rail5::after{content:"";position:absolute;left:0;width:30%;top:9px;height:2px;background:var(--acc);box-shadow:0 0 18px rgba(var(--acc-rgb),.8)}
+.st{position:relative;padding:0 22px 0 0;display:flex;flex-direction:column;gap:9px;align-items:flex-start;z-index:1}
+.st>i{width:20px;height:20px;border-radius:50%;border:2px solid var(--line-2);background:var(--bg);display:block;margin-bottom:12px}
+.st.live>i{border-color:var(--acc);background:var(--acc);box-shadow:0 0 16px rgba(var(--acc-rgb),.8)}
+.st .when{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.st b{font-family:var(--disp);font-weight:500;font-size:20px;letter-spacing:-.02em;line-height:1.1}
+.st p{font-size:14.5px;color:var(--dim)}
+.pill.dash{border-style:dashed}
+
+/* Under reduced motion the cartridge rests in its slot showing the first label. */
+@media (prefers-reduced-motion:reduce){.cart,.swap b{animation:none}.swap b:first-child{opacity:1}}
+/* The rig is scaled in front of its rotation; its children keep their sizes. */
+@media (max-width:1080px){.rig{height:500px}.iso{transform:scale(.86) rotateX(57deg) rotateZ(-41deg);right:-20px}.forks{grid-template-columns:1fr}.rail5{grid-template-columns:1fr;gap:26px;padding-left:36px}
+  .rail5::before{left:9px;right:auto;top:0;bottom:0;width:2px;height:auto;background:repeating-linear-gradient(180deg,var(--line-2) 0 6px,transparent 6px 12px)}
+  .rail5::after{left:9px;top:0;width:2px;height:34%}
+  .st>i{position:absolute;left:-36px;top:0;margin:0}.st{padding:0}}
+@media (max-width:860px){
+  /* .hero__grid is restated: the rule above, outside a media query, would otherwise win over the base's one column. */
+  .hero__grid,.two{grid-template-columns:1fr;gap:40px}
+  .rig{height:470px}
+  .iso{right:50%;margin-right:-225px;top:-40px;transform:scale(.7) rotateX(57deg) rotateZ(-41deg)}
+  .gitst{width:100%;bottom:0}
+  .rig .pill.sample{display:none}
+  .why{padding:84px 0}
+  .diff li{grid-template-columns:30px minmax(0,1fr);padding-right:0}
+  .diff li .pill{display:none}
+  .ide{grid-template-columns:1fr}
+  .ide__tree{border-right:0;border-bottom:1px solid var(--line);flex-direction:row;flex-wrap:wrap;padding:12px}
+  .ide__hd{width:100%;padding-bottom:4px}
+  .part{grid-template-columns:10px auto;flex:1 1 40%}
+  .part small{display:none}
+  .ide__pane{padding:24px 20px}
+  .kv li{grid-template-columns:1fr;gap:4px}
+  .tty pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;padding:20px}
+  .tty__bar span{display:none}
+  .band{grid-template-columns:1fr;padding:24px 22px}.band .btn{width:100%}
+}
