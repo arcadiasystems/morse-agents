@@ -65,6 +65,21 @@ function ForkStatus() {
   )
 }
 
+/** The hero object: the board with its cartridge, the fork listing over it, and the sketch label. Also drawn on the share image (og/main.tsx). */
+export function Rig() {
+  return (
+    <div
+      className="rig"
+      role="group"
+      aria-label="The agent template: a brain cartridge that swaps on a fixed board of three parts"
+    >
+      <Board />
+      <ForkStatus />
+      <span className="pill sample">A sketch, not shipped yet</span>
+    </div>
+  )
+}
+
 export function Hero() {
   return (
     <section className="hero" id="top">
@@ -96,15 +111,7 @@ export function Hero() {
             {' runs the same template for you from a form.'}
           </p>
         </div>
-        <div
-          className="rig"
-          role="group"
-          aria-label="The agent template: a brain cartridge that swaps on a fixed board of three parts"
-        >
-          <Board />
-          <ForkStatus />
-          <span className="pill sample">A sketch, not shipped yet</span>
-        </div>
+        <Rig />
       </div>
     </section>
   )
